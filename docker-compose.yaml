@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+    api:
+        build: .
+        volumes:
+         - ./api_models:/api/models
+        depends_on:
+         - mongo
+        ports:
+         - "3000:3000"
+        links:
+         - mongo:mongo
+        restart: always
+
+    mongo:
+        image: mongo:latest
+        volumes:
+         - ./db_data:/data/db
+        restart: always
+
+    mongo-ui:
+        image: mongo-express:latest
+        depends_on:
+         - mongo
+        links:
+         - mongo:mongo
+        ports:
+         - "3001:8081"
+        restart: always
