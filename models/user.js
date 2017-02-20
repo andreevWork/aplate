@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const name = "User";
+const name = "Usere";
 
 module.exports = {
     // Число записей в базе

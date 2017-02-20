@@ -4,7 +4,9 @@ services:
     api:
         build: .
         volumes:
-         - ./api_models:/api/models
+         - ./models:/src/api/api/models
+         - ./dist:/src/api/api/dist
+         - ./middlewares/index.js:/src/api/api/middlewares/index.js
         depends_on:
          - mongo
         ports:

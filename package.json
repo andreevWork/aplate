@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "ISC",
   "scripts": {
-    "api": "node ./index.js",
-    "generate": "node ./generate/index.js",
+    "api": "node --harmony-async-await --harmony ./api/index.js",
+    "generate": "node ./api/generate/index.js",
     "start": "npm run generate && npm run api"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "koa-convert": "^1.2.0",
     "koa-graphql": "^0.6.2",
     "koa-router": "^7.0.1",
+    "koa-static": "^3.0.0",
     "mongoose": "^4.8.2"
   }
 }
