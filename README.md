@@ -23,8 +23,16 @@ docker-compose build
 docker-compose up -d
 ```
 * Done! Now you have:
- * self-document api on **graphql** on ```127.0.0.1:3000```
+ * self-document api (graphiql) on **graphql** on ```127.0.0.1:3000/api```
  * **mongo-express** for admin db on ```127.0.0.1:3001```
+ 
+### Settings
+
+#### Volumes
+* dist - volume for static files. Files will be available on root path
+* models - volume for create data. More in [Models](#models)
+
+### <a name="models"></a>Models
  
 ### To Configure
 * Change docker-compose.yaml for change host ports or/and volumes for containers
