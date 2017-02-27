@@ -29,8 +29,9 @@ docker-compose up -d
 ### Settings
 
 #### Volumes
-* dist - volume for static files. Files will be available on root path
-* models - volume for create data. More in [Models](#models)
+* **/dist** - volume for static files. Files will be available on root path.
+* **/models** - volume for create data. More in [Models](#models)
+* **/middlewares** - has one file ```index.js``` for add middlewares.
 
 ### <a name="models"></a>Models
  
