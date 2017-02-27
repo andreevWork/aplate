@@ -14,6 +14,7 @@ For install you need:
 ``` 
 git clone https://github.com/andreevWork/aplate.git 
 ```
+* You can changing something for yourself. More in [Settings](#settings)
 * Build container (maybe last a few minutes):
 ```
 docker-compose build
@@ -26,7 +27,7 @@ docker-compose up -d
  * self-document api (graphiql) on **graphql** on ```127.0.0.1:3000/api```
  * **mongo-express** for admin db on ```127.0.0.1:3001```
  
-### Settings
+### <a name="settings"></a>Settings
 
 #### Volumes
 * **/dist** - volume for static files. Files will be available on root path.
