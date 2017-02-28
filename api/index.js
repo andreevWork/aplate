@@ -7,7 +7,7 @@ const graphqlHTTP = require('koa-graphql');
 const Koa = require('koa');
 const path = require('path');
 const static_serve = require('koa-static');
-const middlewares = require('./middlewares');
+const middleware = require('./middleware');
 
 db().then(({models}) => {
     const app = new Koa();
@@ -15,8 +15,8 @@ db().then(({models}) => {
     const Schema = graffiti.getSchema(models);
     const static_dir = path.join(__dirname, 'dist');
 
-    // Custom
-    middlewares(app, router);
+    // Custom middleware
+    middleware(app, router);
 
     app
         .use(static_serve(static_dir))
@@ -30,6 +30,6 @@ db().then(({models}) => {
     })));
     
     app.listen(3000, () => {
-        console.log(colors.bold.green(`✔ server start on ${3000}`));
+        console.log(colors.bold.green(`✔ server start on ${process.env.API_PORT}`));
     });
 }).catch(e => console.log(e));

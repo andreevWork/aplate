@@ -3,14 +3,16 @@ version: '2'
 services:
     api:
         build: .
+        environment:
+         - API_PORT=${API_PORT}
         volumes:
-         - ./models:/src/api/api/models
-         - ./dist:/src/api/api/dist
-         - ./middlewares/index.js:/src/api/api/middlewares/index.js
+         - ${VOLUME_MODELS}:/src/api/api/models
+         - ${VOLUME_DIST}:/src/api/api/dist
+         - ${VOLUME_MIDDLEWARE}:/src/api/api/middleware/index.js
         depends_on:
          - mongo
         ports:
-         - "3000:3000"
+         - "${API_PORT}:3000"
         links:
          - mongo:mongo
         restart: always
@@ -28,5 +30,5 @@ services:
         links:
          - mongo:mongo
         ports:
-         - "3001:8081"
+         - "${ADMIN_PORT}:8081"
         restart: always

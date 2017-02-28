@@ -10,7 +10,7 @@ COPY package.json /src/api
 
 COPY api /src/api/api
 
-VOLUME /src/api/api/models /src/api/api/dist /src/api/api/middlewares
+VOLUME /src/api/api/models /src/api/api/dist /src/api/api/middleware
 
 RUN npm install
 
