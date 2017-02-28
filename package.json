@@ -7,6 +7,7 @@
     "generate": "node ./api/generate/index.js",
     "start": "npm run generate && npm run api",
     "dev": "cd frontend && ../node_modules/.bin/webpack --watch"
+    "create-files": "cd gen && node gen.js"
   },
   "dependencies": {
     "@risingstack/graffiti-mongoose": "^6.0.0",
@@ -22,9 +23,11 @@
     "koa-router": "^7.0.1",
     "koa-send": "^3.3.0",
     "koa-static": "^3.0.0",
+    "mkdirp": "^0.5.1",
     "mongoose": "^4.8.2",
     "vue": "^2.2.1",
     "vue-template-loader": "^0.2.2",
+    "mz": "^2.6.0",
     "webpack": "^2.2.1"
   }
 }
