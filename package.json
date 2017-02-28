@@ -5,10 +5,14 @@
   "scripts": {
     "api": "node --harmony-async-await --harmony ./api/index.js",
     "generate": "node ./api/generate/index.js",
-    "start": "npm run generate && npm run api"
+    "start": "npm run generate && npm run api",
+    "dev": "cd frontend && ../node_modules/.bin/webpack --watch"
   },
   "dependencies": {
     "@risingstack/graffiti-mongoose": "^6.0.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
     "colors": "^1.1.2",
     "faker": "^3.1.0",
     "graphql": "^0.9.1",
@@ -19,6 +23,8 @@
     "koa-send": "^3.3.0",
     "koa-static": "^3.0.0",
     "mongoose": "^4.8.2",
+    "vue": "^2.2.1",
+    "vue-template-loader": "^0.2.2",
     "webpack": "^2.2.1"
   }
 }
