@@ -1,40 +1,7 @@
-# aplate - APi temPLATE
+## [Основной проект](https://github.com/andreevWork/aplate)
 
-## Usage
+Ветка для "поигрушек" с Vue.js. Сборка своя, **без** ``` vue-cli ```
 
-### Dependency
-For install you need:
-
-* Git - [install](https://git-scm.com/download/linux)
-* Docker - [install](https://docs.docker.com/engine/installation/linux/ubuntu/)
-* Docker-compose - [install](https://docs.docker.com/compose/install/)
-
-### To Install
-* Clone this repo:
-``` 
-git clone https://github.com/andreevWork/aplate.git 
-```
-* You can changing something for yourself. More in [Settings](#settings)
-* Build container (maybe last a few minutes):
-```
-docker-compose build
-```
-* Start container (maybe last a few minutes):
-```
-docker-compose up -d
-```
-* Done! Now you have:
- * self-document api (graphiql) on **graphql** on ```127.0.0.1:3000/api```
- * **mongo-express** for admin db on ```127.0.0.1:3001```
- 
-### <a name="settings"></a>Settings
-
-#### Volumes
-* **/dist** - volume for static files. Files will be available on root path.
-* **/models** - volume for create data. More in [Models](#models)
-* **/middlewares** - has one file ```index.js``` for add middlewares.
-
-### <a name="models"></a>Models
- 
-### To Configure
-* Change docker-compose.yaml for change host ports or/and volumes for containers
+### Стек
+* [Vue](https://vuejs.org/)
+* [Vue material](https://vuematerial.github.io/#/)
