@@ -6,7 +6,7 @@
     "api": "node --harmony-async-await --harmony ./api/index.js",
     "generate": "node ./api/generate/index.js",
     "start": "npm run generate && npm run api",
-    "dev": "cd frontend && ../node_modules/.bin/webpack --watch"
+    "dev": "cd frontend && ../node_modules/.bin/webpack --watch",
     "create-files": "cd gen && node gen.js"
   },
   "dependencies": {
