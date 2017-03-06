@@ -29,6 +29,11 @@ module.exports = {
             return;
         }
 
+        if (Array.isArray(obj)) {
+            return Array.apply(null, {length: Math.floor(5 + Math.random() * 10)})
+                .map(() => faker.fake(obj[0].template));
+        }
+
         let {template} = obj;
 
         if (!template) {

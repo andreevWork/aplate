@@ -15,6 +15,11 @@ db().then(({models}) => {
     const Schema = graffiti.getSchema(models);
     const static_dir = path.join(__dirname, 'dist');
 
+    router.all('/api', convert(graphqlHTTP({
+        schema: Schema,
+        graphiql: true
+    })));
+
     // Custom middleware
     middleware(app, router);
 
@@ -22,12 +27,6 @@ db().then(({models}) => {
         .use(static_serve(static_dir))
         .use(router.routes())
         .use(router.allowedMethods());
-
-
-    router.all('/api', convert(graphqlHTTP({
-        schema: Schema,
-        graphiql: true
-    })));
     
     app.listen(3000, () => {
         console.log(colors.bold.green(`✔ server start on ${process.env.API_PORT}`));
