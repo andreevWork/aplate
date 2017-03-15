@@ -36,7 +36,7 @@ export default class Products extends Store {
     getActions() {
         return {
             loadProducts: (store) => {
-                Store.get({params: {query: this.query}})
+                return this.getQuery()
                     .then(({data}) => {
                         store.commit('setProducts', data.viewer.products.edges)
                     });

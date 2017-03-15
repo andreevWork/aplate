@@ -6,8 +6,8 @@ export default class Store {
         return `get${key.slice(0,1).toUpperCase().concat(key.slice(1))}`;
     }
     
-    static get(options) {
-        return Vue.http.get('', options).then(data => {
+    getQuery() {
+        return Vue.http.get('', {params: {query: this.query}}).then(data => {
             if (!data.ok) {
                 throw Error(`Vue get error: status - ${data.status}`);
             }

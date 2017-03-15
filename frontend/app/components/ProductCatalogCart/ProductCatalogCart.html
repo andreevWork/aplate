@@ -1,26 +1,57 @@
-<!--<md-card>-->
-    <!--<md-card-media>-->
-        <!--<img src="assets/card-image-1.jpg" alt="People">-->
-    <!--</md-card-media>-->
+<md-card>
+    <md-card-media>
+        <img v-if="!is_full" :src="`${product.photos[0]}/?${Math.random()}`">
 
-    <!--<md-card-header>-->
-        <!--<div class="md-title">Title goes here</div>-->
-        <!--<div class="md-subhead">Subtitle here</div>-->
-    <!--</md-card-header>-->
+        <carousel v-else
+                  :key="product.id"
+                  :perPage="1"
+                  :paginationPadding="3"
+                  :paginationSize="5"
+                  paginationColor="#BCAAA4"
+                  paginationActiveColor="#4E342E"
+        >
+            <slide v-for="photo in product.photos">
+                <img :src="`${photo}/?${Math.random()}`">
+            </slide>
+        </carousel>
+    </md-card-media>
 
-    <!--<md-card-actions>-->
-        <!--<md-button>Action</md-button>-->
-        <!--<md-button>Action</md-button>-->
-    <!--</md-card-actions>-->
+    <md-card-header>
+        <div class="md-title" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+            {{product.productName}}
+        </div>
 
-    <!--<md-card-content>-->
-        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.-->
-    <!--</md-card-content>-->
-<!--</md-card>-->
-<div>
-    {{products.length}}
-    <div v-for="pr in products">
-        <img :src="`${pr.photos[0]}?${Math.random()}`" alt="">
-        {{pr.price}}
-    </div>
-</div>
+        <div class="md-subhead" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+            by {{product.company}}
+        </div>
+    </md-card-header>
+
+    <md-card-actions v-if="!is_full"  style="justify-content: space-between;">
+        <md-button class="md-raised md-icon-button md-accent md-mini md-dense" @click.native="preView">
+            <md-icon>visibility</md-icon>
+        </md-button>
+
+        <div style="font-size:1.2em;font-weight: bold; text-align: right;">
+            ${{product.price}}
+        </div>
+    </md-card-actions>
+
+    <md-card-content v-if="is_full">
+        <div style="height: 40px;line-height: 40px;margin-bottom: 16px;">
+            <div style="float:right;font-size:1.1rem;font-weight: bold;">
+                ${{product.price}}
+            </div>
+            <md-chip disabled style="font-size: 0.7rem;vertical-align: middle;max-width: 35%;overflow: hidden;text-overflow: ellipsis;">
+                {{product.category}}
+            </md-chip>
+            <md-chip disabled style="font-size: 0.7rem;vertical-align: middle;max-width: 35%;overflow: hidden;text-overflow: ellipsis;">
+                {{product.material}}
+            </md-chip>
+        </div>
+
+        <p style="font-size: 0.8rem;">
+            {{product.description}}
+        </p>
+    </md-card-content>
+
+</md-card>

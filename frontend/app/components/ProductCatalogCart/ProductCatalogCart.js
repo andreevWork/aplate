@@ -1,22 +1,22 @@
 import addTemplate from './ProductCatalogCart.html';
-import { mapState, mapActions } from 'vuex';
+import { Carousel, Slide } from 'vue-carousel';
 
 export default addTemplate({
-    name: 'Products',
-    
-    computed: {
-        ...mapState([
-            'products'
-        ])
+    name: 'ProductsCatalogCard',
+
+    props: {
+        product: Object,
+        is_full: Boolean
     },
     
     methods: {
-        ...mapActions([
-            'loadProducts'
-        ])
+        preView() {
+            this.$emit('onPreView', this.product);
+        }
     },
     
-    created() {
-        this.loadProducts();
+    components: {
+        Carousel,
+        Slide
     }
 })

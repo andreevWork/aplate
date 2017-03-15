@@ -1,8 +1,16 @@
 import addTemplate from './ProductCatalog.html';
+import ProductsCatalogCard from './../ProductCatalogCart/ProductCatalogCart';
+import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
 
 export default addTemplate({
-    name: 'Products',
+    name: 'ProductsCatalog',
+
+    data() {
+        return {
+            active_product: null
+        }
+    },
 
     computed: {
         products() {
@@ -13,7 +21,19 @@ export default addTemplate({
     methods: {
         ...mapActions([
             'loadProducts'
-        ])
+        ]),
+        openPreView(product) {
+            document.body.classList.toggle('hidden');
+            this.active_product = product;
+            this.$refs.dialog.open();
+        },
+        closePreView() {
+            document.body.classList.toggle('hidden');
+        }
+    },
+
+    components: {
+        'card': ProductsCatalogCard
     },
 
     created() {
