@@ -3,6 +3,11 @@ import {ProductFields, ProductFieldsName} from './type';
 
 export default class Products extends Store {
 
+    constructor() {
+        super();
+        return this.getStore();
+    }
+
     query = `
       query {
         viewer {
@@ -38,7 +43,7 @@ export default class Products extends Store {
             loadProducts: (store) => {
                 return this.getQuery()
                     .then(({data}) => {
-                        store.commit('setProducts', data.viewer.products.edges)
+                        store.commit('setProducts', data.viewer.products.edges);
                     });
             }
         }

@@ -1,6 +1,5 @@
 import addTemplate from './ProductCatalog.html';
 import ProductsCatalogCard from './../ProductCatalogCart/ProductCatalogCart';
-import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
 
 export default addTemplate({

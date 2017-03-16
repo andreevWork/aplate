@@ -1,14 +1,14 @@
 <md-card>
     <md-card-media>
-        <img v-if="!is_full" :src="`${product.photos[0]}/?${Math.random()}`">
+        <img v-if="!is_full" @click="$router.push({name: 'product'})" :src="`${product.photos[0]}/?${Math.random()}`">
 
         <carousel v-else
                   :key="product.id"
                   :perPage="1"
                   :paginationPadding="3"
                   :paginationSize="5"
-                  paginationColor="#BCAAA4"
-                  paginationActiveColor="#4E342E"
+                  paginationColor="#8C9EFF"
+                  paginationActiveColor="#304FFE"
         >
             <slide v-for="photo in product.photos">
                 <img :src="`${photo}/?${Math.random()}`">

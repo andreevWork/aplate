@@ -1,41 +1,22 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
-import VueResource from 'vue-resource';
-import VueMaterial from 'vue-material';
-import ProductCatalog from './components/ProductCatalog/ProductCatalog';
-import Products from './store/products/index';
-import VueCarousel from 'vue-carousel';
+import Init from './begin/init';
+import Settings from './begin/settings';
+import Store from './begin/store';
+import Router from './begin/router';
+import App from './components/App';
 
+Init(Vue);
+Settings(Vue);
 
-Vue.use(VueMaterial);
-Vue.use(VueResource);
-Vue.use(VueCarousel);
-Vue.use(Vuex);
-Vue.http.options.root = '/api';
-
-Vue.material.registerTheme('default', {
-    primary: {
-        color: 'indigo',
-        hue: 'A200'
-    },
-    accent: {
-        color: 'brown',
-        hue: 200
-    },
-    background: {
-        color: 'gray',
-        hue: 50
-    }
-});
-
-const store = new Vuex.Store({
-    modules: {
-        products: new Products().getStore()
-    }
-});
+const store = Store();
+const router = Router();
+const el = '#app';
 
 new Vue({
-    el: '#app',
+    el,
     store,
-    render: h => h(ProductCatalog)
+    router,
+    render: h => h(App)
 });
+
+
