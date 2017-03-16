@@ -1,4 +1,4 @@
-const send = require('koa-send');
+const fs = require('fs');
 
 module.exports = function (app, router) {
     app.use(async function (ctx, next) {
@@ -9,6 +9,6 @@ module.exports = function (app, router) {
     });
 
     router.get('*', (ctx) => {
-        send(ctx, '../dist/index.html');
+        ctx.body = fs.readFileSync('./api/dist/index.html',  'utf-8');
     });
 };
