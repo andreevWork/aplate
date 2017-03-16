@@ -11,6 +11,9 @@
 ### Стек
 * [Vue](https://vuejs.org/)
 * [Vue material](https://vuematerial.github.io/#/)
+* [Vuex](https://vuex.vuejs.org/ru/)
+* [Vue-router](https://router.vuejs.org/ru/)
+* [Vue carousel](https://ssense.github.io/vue-carousel/)
 
 ### Схема Базы
 * Товары
