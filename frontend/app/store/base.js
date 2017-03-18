@@ -6,13 +6,41 @@ export default class Store {
         return `get${key.slice(0,1).toUpperCase().concat(key.slice(1))}`;
     }
     
-    getQuery() {
-        return Vue.http.get('', {params: {query: this.query}}).then(data => {
+    data = {};
+    
+    getQuery(variables) {
+        return Vue.http.get('', this.getParams(variables)).then(data => {
             if (!data.ok) {
                 throw Error(`Vue get error: status - ${data.status}`);
             }
             return data.json();
         });
+    }
+
+    getParams(variables) {
+        const params = {
+            query: this.query
+        };
+
+        if (variables) {
+            params.variables = JSON.stringify(variables);
+        }
+        
+        return {params};
+    }
+
+    getMutations() {
+        return {
+            setData (state, data) {
+                state.data = data;
+            }
+        }
+    }
+
+    getState() {
+        return {
+            data: this.data
+        };
     }
     
     getStore() {

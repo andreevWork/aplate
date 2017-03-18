@@ -1,14 +1,21 @@
-export const ProductFieldsName = "ProductFields";
+export const ProductMainFieldsName = "ProductMainFields";
 
-export const ProductFields =  `
-fragment ${ProductFieldsName} on Product {
+export const ProductMainFields =  `
+fragment ${ProductMainFieldsName} on Product {
   id
   price,
   productName,
   photos,
   category,
   material,
-  description,
   company
+} 
+`;
+
+export const ProductOptionalFieldsName = "ProductOptionalFields";
+
+export const ProductOptionalFields =  `
+fragment ${ProductOptionalFieldsName} on Product {
+  description
 } 
 `;

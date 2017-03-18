@@ -1,15 +1,27 @@
 import addTemplate from './ProductCard.html';
+import ProductsCatalogCard from './../ProductCatalogCart/ProductCatalogCart';
+import { mapActions } from 'vuex';
 
 export default addTemplate({
-    data () {
-        return {
-            text: 'Example text'
+    name: 'ProductCard',
+
+    computed: {
+        product() {
+            return this.$store.state.product.data;
         }
     },
 
     methods: {
-        log () {
-            console.log('output log')
-        }
+        ...mapActions([
+            'loadProduct'
+        ])
+    },
+    
+    components: {
+        'card': ProductsCatalogCard
+    },
+
+    created() {
+        this.loadProduct(this.$route.params.id);
     }
 })

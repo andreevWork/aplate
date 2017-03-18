@@ -12,6 +12,9 @@ export default addTemplate({
     methods: {
         preView() {
             this.$emit('onPreView', this.product);
+        },
+        goToCard() {
+            this.$router.push({name: 'product', params: { id: this.product.id }})
         }
     },
     

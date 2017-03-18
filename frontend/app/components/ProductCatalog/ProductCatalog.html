@@ -2,7 +2,13 @@
     <md-dialog ref="dialog" @close="closePreView">
         <card v-if="active_product" :is_full="true" :product="active_product"></card>
     </md-dialog>
-    <div v-for="{node} in products"  style="display: inline-block; width:calc(50% - 20px);margin: 10px; position:relative">
+
+    <spinner v-if="!products || !products.length"></spinner>
+
+    <div v-else
+         v-for="{node} in products"
+         style="display: inline-block; width:calc(50% - 20px);margin: 10px; position:relative"
+    >
         <card :product="node" @onPreView="openPreView"></card>
     </div>
 </div>

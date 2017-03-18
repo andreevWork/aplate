@@ -22,7 +22,6 @@ export default addTemplate({
             'loadProducts'
         ]),
         openPreView(product) {
-            document.body.classList.toggle('hidden');
             this.active_product = product;
             this.$refs.dialog.open();
         },

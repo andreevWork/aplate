@@ -1,6 +1,14 @@
-<section>
+<section style="height: 100vh;">
     <hat></hat>
-    <main>
-        <router-view></router-view>
+    <main style="height: calc(100vh - 50px);overflow-y: auto;" ref="main">
+        <transition
+                mode="out-in"
+                appear
+                appear-active-class="animated fadeIn"
+                enter-active-class="animated fadeIn custom_duration"
+                leave-active-class="animated fadeOut custom_duration"
+        >
+            <router-view></router-view>
+        </transition>
     </main>
 </section>

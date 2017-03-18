@@ -12,7 +12,7 @@ export default function () {
                 component: ProductCatalog
             },
             {
-                path: '/product',
+                path: '/product/:id',
                 name: 'product',
                 component: ProductCard
             }

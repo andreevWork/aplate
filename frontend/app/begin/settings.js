@@ -1,5 +1,6 @@
 export default function (App) {
-    const theme_color = 'indigo';
+    const primary_color = 'teal';
+    const accent_color = 'orange';
     const background_color = 'gray';
     const root_api = '/api';
 
@@ -8,12 +9,12 @@ export default function (App) {
 
     App.material.registerTheme('default', {
         primary: {
-            color: theme_color,
-            hue: 'A700'
+            color: primary_color,
+            hue: '400'
         },
         accent: {
-            color: theme_color,
-            hue: 'A200'
+            color: accent_color,
+            hue: '700'
         },
         background: {
             color: background_color,

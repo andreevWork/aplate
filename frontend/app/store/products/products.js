@@ -1,5 +1,5 @@
 import Store from './../base';
-import {ProductFields, ProductFieldsName} from './type';
+import {ProductMainFieldsName, ProductMainFields} from './type';
 
 export default class Products extends Store {
 
@@ -14,36 +14,24 @@ export default class Products extends Store {
           products(first: 5) {
             edges {
               node {
-                ...${ProductFieldsName}
+                ...${ProductMainFieldsName}
               }
             }
            }
         }
       }
       
-      ${ProductFields}
+      ${ProductMainFields}
     `;
 
-    getState() {
-        return {
-            data: []
-        };
-    }
-
-    getMutations() {
-        return {
-            setProducts (state, data) {
-                state.data = data;
-            }
-        }
-    }
+    data = [];
 
     getActions() {
         return {
             loadProducts: (store) => {
                 return this.getQuery()
                     .then(({data}) => {
-                        store.commit('setProducts', data.viewer.products.edges);
+                        store.commit('setData', data.viewer.products.edges);
                     });
             }
         }
