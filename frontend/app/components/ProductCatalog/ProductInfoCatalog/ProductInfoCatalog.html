@@ -1,0 +1,15 @@
+<product-info :product="product">
+
+    <img slot="image" @click="goToCard()" :src="`${product.photos[0]}/?${Math.random()}`" >
+
+    <md-card-actions slot="content"  style="justify-content: space-between;">
+        <md-button class="md-raised md-icon-button md-accent md-mini md-dense" @click.native="preView">
+            <md-icon>visibility</md-icon>
+        </md-button>
+
+        <div style="font-size:1.2em;font-weight: bold; text-align: right;">
+            ${{product.price}}
+        </div>
+    </md-card-actions>
+
+</product-info>

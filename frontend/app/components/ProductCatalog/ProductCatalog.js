@@ -1,5 +1,6 @@
 import addTemplate from './ProductCatalog.html';
-import ProductsCatalogCard from './../ProductCatalogCart/ProductCatalogCart';
+import ProductInfoCatalog from './ProductInfoCatalog/ProductInfoCatalog';
+import ProductPreview from './ProductPreview/ProductPreview';
 import { mapState, mapActions } from 'vuex';
 
 export default addTemplate({
@@ -31,7 +32,8 @@ export default addTemplate({
     },
 
     components: {
-        'card': ProductsCatalogCard
+        'card': ProductInfoCatalog,
+        'preview': ProductPreview
     },
 
     created() {

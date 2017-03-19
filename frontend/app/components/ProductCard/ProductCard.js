@@ -1,5 +1,5 @@
 import addTemplate from './ProductCard.html';
-import ProductsCatalogCard from './../ProductCatalogCart/ProductCatalogCart';
+import ProductInfoCard from './ProductInfoCard/ProductInfoCard';
 import { mapActions } from 'vuex';
 
 export default addTemplate({
@@ -18,7 +18,7 @@ export default addTemplate({
     },
     
     components: {
-        'card': ProductsCatalogCard
+        'card': ProductInfoCard
     },
 
     created() {

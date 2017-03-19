@@ -1,12 +1,5 @@
 <div style="height: 100%">
     <spinner v-if="!product.id"></spinner>
 
-    <card style="height: 100%" v-else :is_full="true" :product="product">
-        <md-button style="float:right;margin-right: 0;" class="md-raised md-accent">
-            Add to cart
-        </md-button>
-        <div>
-            {{product.description}}
-        </div>
-    </card>
+    <card style="height: 100%" v-else :product="product"></card>
 </div>

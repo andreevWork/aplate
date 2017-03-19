@@ -17,12 +17,18 @@ export default addTemplate({
     },
 
     mounted() {
-        // var hammertime = new Hammer(document.body, {});
-        // hammertime.get('pan').set({ threshold: 100 });
-        //
-        // hammertime.on('panleft', function(ev) {
-        //     alert(ev);
-        // });
+        var mc = new Hammer.Manager(this.$refs.navigate, {
+            recognizers: [
+                [
+                    Hammer.Swipe,
+                    { direction: Hammer.DIRECTION_ALL }
+                ]
+            ]
+        });
+
+        mc.on('swiperight', () => {
+            this.$router.back();
+        });
 
     }
 })

@@ -1,0 +1,26 @@
+<md-card>
+    <md-card-media>
+        <slot name="image"></slot>
+    </md-card-media>
+
+    <md-card-header>
+        <div style="line-height: 36px;">
+            <md-button
+                    @click.native="goToCard()"
+                    class="md-accent"
+                    style="text-align: left;display:inline-block;max-width: 100%;padding: 0;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;"
+            >
+                {{product.productName}}
+            </md-button>
+
+            <slot name="right"></slot>
+        </div>
+
+        <div class="md-subhead" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+            by {{product.company}}
+        </div>
+    </md-card-header>
+
+    <slot name="content"></slot>
+
+</md-card>

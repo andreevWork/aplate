@@ -1,6 +1,6 @@
 <div>
     <md-dialog ref="dialog" @close="closePreView">
-        <card v-if="active_product" :is_full="true" :product="active_product"></card>
+        <preview v-if="active_product" :product="active_product"></preview>
     </md-dialog>
 
     <spinner v-if="!products || !products.length"></spinner>

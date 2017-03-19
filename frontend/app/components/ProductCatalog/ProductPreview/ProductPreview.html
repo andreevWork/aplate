@@ -1,0 +1,31 @@
+<product-info :product="product">
+
+    <carousel slot="image"
+              :key="product.id"
+              :perPage="1"
+              :paginationPadding="3"
+              :paginationSize="5"
+              :minSwipeDistance="50"
+              paginationColor="#B2DFDB"
+              paginationActiveColor="#26A69A"
+    >
+        <slide v-for="photo in product.photos">
+            <img :src="`${photo}/?${Math.random()}`">
+        </slide>
+    </carousel>
+
+    <md-card-content slot="content"  >
+        <div style="line-height: 40px;">
+            <div style="float:right;font-size:1.1rem;font-weight: bold;">
+                ${{product.price}}
+            </div>
+            <md-chip disabled style="font-size: 0.7rem;vertical-align: middle;max-width: 35%;overflow: hidden;text-overflow: ellipsis;">
+                {{product.category}}
+            </md-chip>
+            <md-chip disabled style="font-size: 0.7rem;vertical-align: middle;max-width: 35%;overflow: hidden;text-overflow: ellipsis;">
+                {{product.material}}
+            </md-chip>
+        </div>
+    </md-card-content>
+
+</product-info>
