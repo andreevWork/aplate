@@ -1,6 +1,6 @@
 <div>
     <md-dialog ref="dialog" @close="closePreView">
-        <preview v-if="active_product" :product="active_product"></preview>
+        <preview @addToCart="addToCart(active_product.id)" v-if="active_product" :product="active_product"></preview>
     </md-dialog>
 
     <spinner v-if="!products || !products.length"></spinner>

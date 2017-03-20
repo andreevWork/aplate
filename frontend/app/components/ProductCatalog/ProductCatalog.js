@@ -1,7 +1,7 @@
 import addTemplate from './ProductCatalog.html';
 import ProductInfoCatalog from './ProductInfoCatalog/ProductInfoCatalog';
-import ProductPreview from './ProductPreview/ProductPreview';
-import { mapState, mapActions } from 'vuex';
+import ProductInfoCard from './../ProductCard/ProductInfoCard/ProductInfoCard';
+import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default addTemplate({
     name: 'ProductsCatalog',
@@ -22,6 +22,9 @@ export default addTemplate({
         ...mapActions([
             'loadProducts'
         ]),
+        ...mapMutations([
+            'addToCart'
+        ]),
         openPreView(product) {
             this.active_product = product;
             this.$refs.dialog.open();
@@ -33,7 +36,7 @@ export default addTemplate({
 
     components: {
         'card': ProductInfoCatalog,
-        'preview': ProductPreview
+        'preview': ProductInfoCard
     },
 
     created() {

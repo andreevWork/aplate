@@ -1,6 +1,6 @@
 import addTemplate from './ProductCard.html';
 import ProductInfoCard from './ProductInfoCard/ProductInfoCard';
-import { mapActions } from 'vuex';
+import { mapActions, mapMutations } from 'vuex';
 
 export default addTemplate({
     name: 'ProductCard',
@@ -14,6 +14,9 @@ export default addTemplate({
     methods: {
         ...mapActions([
             'loadProduct'
+        ]),
+        ...mapMutations([
+            'addToCart'
         ])
     },
     

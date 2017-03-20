@@ -1,5 +1,8 @@
 <div style="height: 100%">
     <spinner v-if="!product.id"></spinner>
 
-    <card style="height: 100%" v-else :product="product"></card>
+    <card @addToCart="addToCart(product.id)" style="height: 100%" v-else :product="product">
+        <md-subheader style="padding: 0;">Description:</md-subheader>
+        {{product.description}}
+    </card>
 </div>

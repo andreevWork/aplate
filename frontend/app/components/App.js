@@ -29,6 +29,9 @@ export default addTemplate({
         mc.on('swiperight', () => {
             this.$router.back();
         });
+        mc.on('swipeleft', () => {
+            this.$refs.cart.open();
+        });
 
     }
 })

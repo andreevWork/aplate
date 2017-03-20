@@ -1,4 +1,4 @@
-<header style="height: 50px;">
+<header style="height: 50px;position: fixed;top: 0;left: 0;right: 0;">
     <md-toolbar style="height: 100%;" class="md-dense">
         <md-button class="md-icon-button">
             <md-icon>menu</md-icon>
@@ -7,6 +7,19 @@
         <router-link tag="h2" class="md-title" style="flex: 1" :to="{name: 'main'}">Shop</router-link>
 
         <md-button class="md-icon-button">
+            <transition appear appear-active-class="animated fadeIn" enter-active-class="animated fadeIn custom_duration1"
+                        leave-active-class="animated fadeOut custom_duration1" >
+                <div v-if="cart.length" style="position: absolute;right: 0;top: 0;z-index: 15;background: #ffab40;border-radius: 50%;width: 20px;height: 20px;font-size: 14px;line-height: 20px;font-weight: bold;">
+                    <transition
+                            mode="out-in"
+                            enter-active-class="animated fadeIn custom_duration1"
+                            leave-active-class="animated fadeOut custom_duration1">
+                        <span :key="cart.length" style="vertical-align: middle;">
+                            {{cart.length}}
+                        </span>
+                    </transition>
+                </div>
+            </transition>
             <md-icon>shopping_cart</md-icon>
         </md-button>
     </md-toolbar>
